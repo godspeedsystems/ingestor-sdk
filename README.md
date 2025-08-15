@@ -1,6 +1,6 @@
 ﻿# Crawler SDK + Scheduler SDK (Simulated)
 
- ## Repository Structure (Branch: `Ingester`)
+ ## Repository Structure (Branch: `Ingestor`)
 
 This branch contains **two main folders**:
 
@@ -897,6 +897,7 @@ The **GlobalIngestionLifecycleManager** orchestrates the following steps:
 - **Report Execution Status**  
   - The `triggerIngestionManagerWebhookTasks.ts` function returns the **GSStatus** from the **GlobalIngestionLifecycleManager** back to **Godspeed**.  
   - **Godspeed** sends the appropriate HTTP response (e.g., `200 OK`) back to the external service that sent the webhook.
+
 
 
 
