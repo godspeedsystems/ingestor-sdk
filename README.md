@@ -16,8 +16,10 @@ This branch contains **two main folders**:
 
 ---
 **Note:** The `scheduler-sdk` here is a **simulation** / lightweight (no DB persistence) setup to demonstrate the working of the Crawler SDK. 
-﻿# Crawler SDK + Scheduler SDK (Simulated)
- 
+---
+﻿
+# Crawler SDK + Scheduler SDK (Simulated) 
+
 ## Ingestor
 
 ### INDEX
@@ -897,6 +899,7 @@ The **GlobalIngestionLifecycleManager** orchestrates the following steps:
 - **Report Execution Status**  
   - The `triggerIngestionManagerWebhookTasks.ts` function returns the **GSStatus** from the **GlobalIngestionLifecycleManager** back to **Godspeed**.  
   - **Godspeed** sends the appropriate HTTP response (e.g., `200 OK`) back to the external service that sent the webhook.
+
 
 
 
