@@ -1,0 +1,24 @@
+#src\events\git_events.yaml
+
+http.post./webhook/github/:
+  id : github-push-event
+  fn: TEST.triggerIngestionManagerWebhookTasks
+  summary: GitHub Push Event Webhook
+  description: Receives GitHub push event payloads to trigger Git crawling tasks.
+  authn: false
+  body:
+    content:
+      application/json:
+        schema:
+          # - $ref: "#/definitions/GitHubPushEventPayload"
+  responses:
+    200:
+      description: Webhook received and processed successfully.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              message: { type: string }
+

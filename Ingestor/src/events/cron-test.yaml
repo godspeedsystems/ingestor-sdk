@@ -1,0 +1,4 @@
+#\src\events\cron-test.yaml
+
+cron.* * * * *.Asia/Kolkata:
+  fn: TEST.triggerIngestionManagerCronTasks

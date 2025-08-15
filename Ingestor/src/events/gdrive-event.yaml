@@ -1,0 +1,24 @@
+#src\events\gdrive-event.yaml
+
+http.post./webhook/gdrive/:
+  id : gdrive-push-event
+  fn: TEST.triggerIngestionManagerWebhookTasks
+  summary: Googledrive Push Event Webhook
+  description: Receives Googledrive push event payloads to trigger gdrive crawling tasks.
+  authn: false
+  body:
+    content:
+      application/json:
+        schema:
+          # - $ref: "#/definitions/GitHubPushEventPayload"
+  responses:
+    200:
+      description: Webhook received and processed successfully.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              message: { type: string }
+

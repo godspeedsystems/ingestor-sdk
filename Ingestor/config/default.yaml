@@ -1,0 +1,113 @@
+# C:\Users\SOHAM\Desktop\Crawler-sdk\crawler\config\default.yaml
+
+lang: js # You can also set 'coffee'. Default is 'js'. You can set either 'coffee' or 'js' as your inline scripting language
+
+log:
+  redact: # ['a.b.c', 'a.b.*', 'req.headers', 'mobileNumber'] # Pino redact rules. Default null.
+  log_attributes: # OTEL attributes to add in every log. By default null.
+  level: debug # By default info.
+  sync: true # By default sync is false. For debugging, keep it true. For performance keep it false.
+  timestamp: stdTimeFunctions.isoTime # Pino date formats.
+  bindings: # Should pid and hostname be enabled in pino log bindings.
+    pid: true
+    hostname: true 
+
+SUPPRESS_NO_CONFIG_WARNING: 1 # Suppresses warnings about missing environment-specific config files.
+
+# --- Task Definitions ---
+# These tasks will be loaded and scheduled by src/functions/TEST/final-test.ts on application startup.
+tasks:
+  webhook-git-clone:
+    id: webhook-git-clone # User's choice: A unique identifier for this task.
+    name: Example Git Repository Webhook Clone
+    enabled: true
+    source:
+      pluginType: git-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
+      config:
+        repoUrl: https://github.com/example-org/example-repo # Example repository URL.
+        branch: main
+        depth: 1
+    destination: # Optional: If omitted, data will be processed but not saved locally.
+      pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
+      config: { outputPath: './crawled_output/webhook-git' }
+    trigger:
+      type: webhook
+      credentials: "your_github_pat_here" # Placeholder for GitHub Personal Access Token.
+      endpointId: '/webhook/github/' # Mandatory endpoint for internal logic.
+      callbackurl: 'https://your-ngrok-url.example.com/api/v1/webhook/github/' # Example ngrok URL or deployment URL.
+    currentStatus: SCHEDULED
+
+  cron-git-clone:
+    id: cron-git-clone # User's choice: A unique identifier for this task.
+    name: Example Git Repository Cron Clone
+    enabled: false
+    source:
+      pluginType: git-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
+      config:
+        repoUrl: https://github.com/example-org/another-repo # Example repository URL.
+        branch: main
+        depth: 1
+    destination: # Optional: If omitted, data will be processed but not saved locally.
+      pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
+      config: { outputPath: './crawled_output/cron-git' }
+    trigger:
+      type: cron
+      expression: '* * * * *' # Every minute for quick testing.
+    currentStatus: SCHEDULED
+
+  my-cron-google-drive-crawl-task:
+    id: my-cron-google-drive-crawl-task # User's choice: A unique identifier for this task.
+    name: Example Google Drive Data Ingestion (Cron)
+    enabled: true
+    source:
+      pluginType: googledrive-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
+      config:
+        serviceAccountKeyPath: ./path/to/example-service-account-key.json # Example path to Service Account JSON key.
+        userToImpersonateEmail: your_service_account_email@example-project.iam.gserviceaccount.com # Example service account email.
+        folderId: example_google_drive_folder_id # Example Google Drive folder ID.
+    destination: # Optional: If omitted, data will be processed but not saved locally.
+      pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
+      config: { outputPath: './crawled_output/cron-gdrive-data' }
+    trigger:
+      type: cron
+      expression: '* * * * *' # Every minute for quick testing.
+    currentStatus: SCHEDULED
+
+  my-webhook-google-drive-crawl-task:
+    id: my-webhook-google-drive-crawl-task # User's choice: A unique identifier for this task.
+    name: Example Google Drive Data Ingestion (Webhook)
+    enabled: false
+    source:
+      pluginType: googledrive-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
+      config:
+        serviceAccountKeyPath: ./path/to/example-service-account-key.json # Example path to Service Account JSON key.
+        userToImpersonateEmail: your_service_account_email@example-project.iam.gserviceaccount.com # Example service account email.
+        folderId: example_google_drive_folder_id # Example Google Drive folder ID.
+    destination: # Optional: If omitted, data will be processed but not saved locally.
+      pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
+      config: { outputPath: './crawled_output/webhook-gdrive-data' }
+    trigger:
+      type: webhook
+      endpointId: '/webhook/gdrive/' # Mandatory endpoint for internal logic.
+      callbackurl: 'https://your-ngrok-url.example.com/api/v1/webhook/gdrive/' # Example ngrok URL or deployment URL.
+      credentials: { serviceAccountKeyPath: ./path/to/example-service-account-key.json } # Example path to Service Account JSON key.
+    currentStatus: SCHEDULED
+
+  cron-http-crawl-daily:
+    id: cron-http-crawl-daily # User's choice: A unique identifier for this task.
+    name: Example Godspeed Website Crawl (Cron)
+    enabled: false
+    source:
+      pluginType: http-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
+      config:
+        startUrl: https://www.example.com/docs # Example starting URL.
+        maxDepth: 2
+        recursiveCrawling: true
+        sitemapDiscovery: false
+    destination: # Optional: If omitted, data will be processed but not saved locally.
+      pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
+      config: { outputPath: './crawled_output/cron-http' }
+    trigger:
+      type: cron
+      expression: '* * * * *' # Every minute for quick testing.
+    currentStatus: SCHEDULED

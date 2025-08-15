@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "./dist",
+		"rootDir": "./",
+		"strict": true,
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true
+	},
+	 "include": [
+    "src/**/*",
+    "test/**/*",          
+    "jest.config.js" 
+	 ],    
+	"exclude": [
+		"./node_modules"
+	],
+	"name": "crawler"
+}

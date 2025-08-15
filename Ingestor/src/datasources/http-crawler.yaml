@@ -1,0 +1,27 @@
+# src/datasources/http-crawler.yaml
+# This 'type' MUST match the 'Type' constant in http-crawler.ts
+type: http-crawler
+
+
+
+# REMOVED: axiosServiceInstanceName as we are not using the Axios plugin
+
+# --- Optional Configurations ---
+# These HTTP-specific configurations will be used directly by the internal Axios instance.
+method: GET
+headers:
+  User-Agent: "Godspeed-HttpCrawler-Instance" # Custom User-Agent for this crawler instance
+# params:
+#   key: "value"
+# data:
+#   param1: "value1"
+
+maxDepth: 1
+sitemapDiscovery: false
+recursiveCrawling: false
+followExternalLinks: false
+# urlFilterRegex: "https://example\\.com/blog/.*"
+
+webhookMode: true
+
+# webhookUrlPath: "some.nested.url.path"
