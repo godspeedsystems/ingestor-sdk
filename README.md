@@ -15,9 +15,10 @@ This branch contains **two main folders**:
      - Lists **future scope** and pending tasks.
 
 ---
-***Note:*** The `scheduler-sdk` here is a **simulation** / lightweight (no DB persistence) setup to demonstrate the working of the Crawler SDK. 
+#### Note: The `scheduler-sdk` here is a **simulation** / lightweight (no DB persistence) setup to demonstrate the working of the Crawler SDK. 
 ---
 ﻿
+
 
 
 
