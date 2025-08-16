@@ -175,28 +175,43 @@ The core files you'll interact with for setup and triggering are:
 - **config/events/gdrive-event.yaml** – Defines the Google Drive webhook event source and endpoint for `triggerIngestionManagerWebhookTasks.ts`.
 - **config/events/git_events.yaml** – Defines the GitHub webhook event source and endpoint for `triggerIngestionManagerWebhookTasks.ts`.
 
-## 5.2. Installation
+## 5.2. Setup Instructions for Crawler SDK
 
-To use the Crawler SDK, you need to set up your Node.js environment and install the required dependencies.
+To use the Crawler SDK, you need to set up your Node.js environment, clone the repository, and install the required dependencies.
 
 ### 5.2.1. Prerequisites
 
 - Node.js (LTS version recommended)
 - npm (Node Package Manager) or pnpm
 
-### 5.2.2. Dependency Installation
+### 5.2.2. Clone the Repository
 
-Navigate to your project's root directory (where `package.json` is located) in your terminal and install the dependencies:
+Run the following command to clone the `Ingestor` branch of the repository:
 
 ```bash
-# Install runtime dependencies
+git clone -b Ingestor https://github.com/godspeedsystems/ingestor-sdk.git
+```
+Then navigate to the Ingestor folder:
+```bash
+cd ingestor-sdk/Ingestor
+```
+### 5.2.3. Install Dependencies
+
+Install the required runtime dependencies using `npm`:
+```bash
+npm install
+```
+or
+```bash
 npm install @godspeedsystems/core simple-git axios uuid googleapis google-auth-library cheerio
 ```
+Note on @types packages:
+Some libraries (like simple-git, googleapis, and google-auth-library) include their TypeScript definitions. Installing separate @types/ packages is usually unnecessary and may cause installation errors.
 
-**Note on `@types` packages:**  
-Some libraries (like `simple-git`, `googleapis`, and `google-auth-library`) bundle their TypeScript definitions directly, so explicit `@types/` packages for them might not be necessary. In some cases, installing them can cause conflicts (such as *E404 errors* during install).  
+### 5.2.4. Setup Completion
 
-The command above includes only the `@types` packages that are typically required.
+Once the dependencies are installed, your setup is ready, and you can start by defining tasks as described in **Section 5.3**.
+
 
 ## 5.3. Define Tasks (`config/default.yaml`)
 
