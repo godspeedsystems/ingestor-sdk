@@ -16,9 +16,8 @@
 
 5. [Setup & Usage Guide](#5-setup--usage-guide)  
    - [5.1. Files Involved in Setup](#51-files-involved-in-setup)  
-   - [5.2. Installation](#52-installation)  
+   - [5.2. Installation](#52-setup-instructions-for-crawler-sdk)  
      - [5.2.1. Prerequisites](#521-prerequisites)  
-     - [5.2.2. Dependency Installation](#522-dependency-installation)
      - [5.2.2. Clone the Repository](#522-clone-the-repository)
      - [5.2.3. Install Dependencies](#523-install-dependencies)
    - [5.3. Define Tasks (config/defaultyaml)](#53-define-tasks-configdefaultyaml)  
