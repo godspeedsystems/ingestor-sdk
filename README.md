@@ -130,20 +130,20 @@ Crucially, users do not have to explicitly create a separate YAML file for each 
 - The specific configuration for that task's source is provided as a **JSON object** within the `taskDefinition`.
 - This `taskDefinition` is then persisted in the database.
 
-**Example: Git Crawler** (`config/datasources/git-crawler.yaml`)
+**Example: Git Crawler** (`datasources/git-crawler.yaml`)
 ```yaml
 type: git-crawler
 branch: main
 depth: 1
 ```
-**Example: Google Drive Crawler** (`config/datasources/gdrive-crawler.yaml`)
+**Example: Google Drive Crawler** (`datasources/gdrive-crawler.yaml`)
 ```yaml
 type: googledrive-crawler
 authType: service_account
 serviceAccountKeyPath: ./path/to/service-account-key.json
 pageSize: 100
 ```
-**Example: HTTP Crawler** (`config/datasources/http-crawler.yaml`)
+**Example: HTTP Crawler** (`datasources/http-crawler.yaml`)
 ```yaml
 type: http-crawler
 maxDepth: 2
