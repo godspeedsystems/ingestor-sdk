@@ -107,7 +107,7 @@ export async function setupGlobalIngestionManager() {
                 pluginType: 'googledrive-crawler',
                 config: {
                     serviceAccountKeyPath: "./path/to/example-service-account-key.json", 
-                    userToImpersonateEmail: "your_service_account_email@example.com", 
+                    userToImpersonateEmail: "your_googledrive_gmail", 
                     folderId: "example_google_drive_folder_id", 
                 }
             },
