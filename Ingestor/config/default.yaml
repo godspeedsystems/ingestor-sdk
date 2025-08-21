@@ -20,7 +20,7 @@ tasks:
   webhook-git-clone:
     id: webhook-git-clone # User's choice: A unique identifier for this task.
     name: Example Git Repository Webhook Clone
-    enabled: true
+    enabled: false
     source:
       pluginType: git-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
       config:
@@ -58,12 +58,12 @@ tasks:
   my-cron-google-drive-crawl-task:
     id: my-cron-google-drive-crawl-task # User's choice: A unique identifier for this task.
     name: Example Google Drive Data Ingestion (Cron)
-    enabled: true
+    enabled: false
     source:
       pluginType: googledrive-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
       config:
         serviceAccountKeyPath: ./path/to/example-service-account-key.json # Example path to Service Account JSON key.
-        userToImpersonateEmail: your_googledrive_gmail # Example service account email.
+        userToImpersonateEmail: your_googledrive_gmail # your_googledrive_gmail.
         folderId: example_google_drive_folder_id # Example Google Drive folder ID.
     destination: # Optional: If omitted, data will be processed but not saved locally.
       pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
@@ -81,7 +81,7 @@ tasks:
       pluginType: googledrive-crawler # Mandatory: This value identifies the crawler type and cannot be changed.
       config:
         serviceAccountKeyPath: ./path/to/example-service-account-key.json # Example path to Service Account JSON key.
-        userToImpersonateEmail: your_service_account_email@example-project.iam.gserviceaccount.com # Example service account email.
+        userToImpersonateEmail: your_googledrive_gmail # your_googledrive_gmail.
         folderId: example_google_drive_folder_id # Example Google Drive folder ID.
     destination: # Optional: If omitted, data will be processed but not saved locally.
       pluginType: file-system-destination # Mandatory: This value identifies the destination type and cannot be changed.
