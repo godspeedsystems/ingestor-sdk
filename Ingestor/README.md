@@ -551,6 +551,9 @@ tasks:
       expression: '* * * * *' # Every minute
     currentStatus: SCHEDULED
 ```
+### 📺 Demo Video
+[Watch the Demo Video](https://drive.google.com/file/d/11Ju6QvRIH_mLR_5o0jtf_5po7oLzVvR-/view?usp=sharing)
+
 ## 5.4. Main Setup File (`src/final-test.ts`)
 
 This file acts as the application's **primary entry point** for initializing the **Scheduler SDK** and configuring its initial state. It brings together the various components of your data ingestion pipeline and sets them up for operation.
