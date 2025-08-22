@@ -420,6 +420,18 @@ This subsection outlines the configuration for tasks designed to ingest data fro
 1. Right-click the folder → **Share**.  
 2. Paste the Service Account email.  
 3. Assign `Viewer` or `Editor` access.
+###  Helpful Tutorial: Creating a Google Service Account for Google Drive API
+
+To make it easier to follow the setup steps, here's a helpful tutorial:
+
+[How to Create a Google Drive Service Account & Enable Drive API](https://stackoverflow.com/questions/45492703/google-drive-api-oauth-and-service-account?utm_source=chatgpt.com)
+
+
+If this embedded video doesn't show up in GitHub (it might not always render), you can still access them via these direct links:
+
+- [Watch on YouTube: Create Service Account & Enable Google Drive API (Link 1)](https://www.youtube.com/watch?v=5UO_-_WZ7Fw)  
+- [Watch on YouTube: Google Drive API Setup Tutorial (Link 2)](https://www.youtube.com/watch?v=ykJQzEe_2dM)  
+- [Google Search Results: How to Create a Service Account for Google Drive API](https://www.google.com/search?sca_esv=98553a785e0448de&sxsrf=AE3TifOAmwn8w_cRvUFGElRNB8pA8ZgS-A:1755886998137&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3YlUqOpj4OTU_HmqxOd8LCYAmZcz3xp4-s3ijYzIP40LlddfBAhJDuHsBzPcairVH3Vw1nWgQux3y0TinQrQ5_uQ6_V2Ksw3PdXtgjC8ztnctdhArcgZ5J16QWeyLm_LrBGWD7zCP8oDxPTnvl4gA1hVhN4Ru_8vv5r-7e1S8tSH0k3YhA&q=How+to+create+a+service+account+for+Google+Drive+API&sa=X&ved=2ahUKEwjhvKjmhJ-PAxV23TgGHfKHAdMQtKgLegQIFBAB&biw=1280&bih=632&dpr=1.5#fpstate=ive&vld=cid:6125ae0a,vid:gb0bytUGDnQ,st:0)
 
 
 ####Example config/default.yaml Snippet
